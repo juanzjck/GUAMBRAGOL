@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Listar Estados</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/plantillas/plantillaAdmin.xhtml">
+
+            <ui:define name="content">
+
+                <p:ajaxStatus style="width:16px;height:16px;" id="ajaxStatusPanel">
+                    <f:facet name="start">
+                        <h:graphicImage library="images" name="ajaxloading.gif" />
+                    </f:facet>
+                    <f:facet name="complete">
+                        <h:outputText value="" />
+                    </f:facet>
+                </p:ajaxStatus>
+
+                <h:form prependId="false" id="form">
+
+                     <p:messages id="messages" showDetail="true" closable="true">
+                        <p:autoUpdate />
+                    </p:messages>                  
+
+                    <p:fieldset legend="Datos Personales" >
+
+                        <h:panelGrid columns="3" > 
+                            <p:outputLabel for="txtNombres" value="Nombres" />
+                            <p:inputText id="txtNombre" value="#{usuarioControlador.persona.nombres}" required="true"/>
+                            <p:message for="txtNombre" />
+
+                            <p:outputLabel for="txtApellidos" value="Apellidos" />
+                            <p:inputText id="txtApellidos" value="#{usuarioControlador.persona.apellidos}" required="true"/>
+                            <p:message for="txtApellifos" />
+
+                            <p:outputLabel for="sorSexo" value="Sexo" />
+                            <p:selectOneRadio id="sorSexo" value="#{usuarioControlador.persona.sexo}" required="true">
+                            <f:selectItem itemValue="M" itemLabel="MASCULINO" />
+                            <f:selectItem itemValue="F" itemLabel="FEMENINO" />
+                            </p:selectOneRadio> 
+                            <p:message for="sorSexo" />
+
+                            <p:outputLabel value="Nacimiento" />
+                            <p:calendar value="#{usuarioControlador.persona.fechaNacimiento}" locale="es" required="true" />
+
+                        </h:panelGrid>                       
+                    </p:fieldset>
+
+                    <p:fieldset legend="Datos de la cuenta" >
+
+                        <h:panelGrid columns="2" >
+                            <p:outputLabel value="Usuario" />
+                            <p:inputText value="#{usuarioControlador.usuario.usuario}" required="true" />
+
+                            <p:outputLabel value="Clave" />
+                            <p:password id="clave1" value="#{usuarioControlador.usuario.clave}" 
+                                        validatorMessage="Las caves no coinciden" weakLabel="Debil" strongLabel="Fuerte" goodLabel="bueno"
+                                        match="clave2" feedback="true" promptLabel="Ingrese una clave" required="true" />
+
+                            <p:outputLabel value="Repetir Clave" />
+                            <p:password id="clave2" />
+                        </h:panelGrid>
+
+                        <p:commandButton icon="ui-icon-check" value="Registrar"/>
+
+                    </p:fieldset>                   
+                </h:form>
+            </ui:define>
+        </ui:composition>
+        <h:outputScript library="js" name="spanishLocate.js" />
+    </h:body>
+
+</html>
