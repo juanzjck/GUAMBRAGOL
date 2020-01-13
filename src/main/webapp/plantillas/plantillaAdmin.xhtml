@@ -9,13 +9,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="css/default.css"/>
         <h:outputStylesheet name="css/cssLayout.css"/>
-        <title>Proyectos</title>        
+        <title>GUAMBRA GOL</title>        
     </h:head>
 
     <h:body>
         <div id="top" class="top">
             <ui:insert name="top">
-                <h1> <center>SISTEMA DE GESTION DE PROYECTOS  </center></h1>
+                <h1> <center>GUAMBRA GOL</center></h1>
             </ui:insert>
         </div>
 
@@ -24,13 +24,11 @@
                 <ui:insert name="left">
                     <h:form>
                         <p:menu toggleable="true">
-                            <p:menuitem value="Inicio" outcome="/Paginas/inicio" icon="ui-icon-home"  />
+                            <p:menuitem value="Inicio" outcome="/paginas/inicio" icon="ui-icon-home"  />
                             <p:submenu label="Administracion" >
-                                <p:menuitem value="Crear Usuario" outcome="/Paginas/usuario/usuario" icon="ui-icon-wrench" />
-                                <p:menuitem value="Usuarios" outcome="/Paginas/usuario/usuario_Listar" icon="ui-icon-wrench" />
-                                <p:menuitem value="Roles" outcome="/Paginas/rol/rol_Listar" icon="ui-icon-wrench"/>
-                                <p:menuitem value="Estados" outcome="/Paginas/estado/estado_Listar" icon="ui-icon-wrench" />
-                                <p:menuitem value="Tipo de Reunion" outcome="/Paginas/tipoReunion/tiporeunion_Listar" icon="ui-icon-wrench"/>
+                                <p:menuitem value="Usuario" outcome="/paginas/administracion/usuario/usuario" icon="ui-icon-wrench" />
+                 
+      
                             </p:submenu>                             
                         </p:menu> 
                     </h:form>
