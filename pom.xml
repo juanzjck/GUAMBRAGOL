@@ -10,8 +10,11 @@
   <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <netbeans.hint.deploy.server>gfv5ee6</netbeans.hint.deploy.server>
+      
     </properties>
     
+  
     <dependencies>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
@@ -106,6 +109,15 @@
             <url>http://repository.primefaces.org</url>
             <layout>default</layout>
         </repository>
+         <repository>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
     </repositories>
     <build>
         <plugins>
