@@ -19,7 +19,7 @@ public class CanchaFacade extends AbstractFacade<Cancha> implements CanchaFacade
 
     @PersistenceContext(unitName = "guambrmaGolPU")
     private EntityManager em;
-
+    
     @Override
     protected EntityManager getEntityManager() {
         return em;

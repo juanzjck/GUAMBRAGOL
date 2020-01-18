@@ -24,6 +24,10 @@ public interface CanchaFacadeLocal {
 
     Cancha find(Object id);
 
+    /**
+     *
+     * @return
+     */
     List<Cancha> findAll();
 
     List<Cancha> findRange(int[] range);
