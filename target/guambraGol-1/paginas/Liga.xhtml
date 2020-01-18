@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <head>
+        <title>Ligas</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+  
+          <h:body>
+        <ui:composition template="/plantillas/plantillaAdmin.xhtml">
+            <ui:define name="content">
+                 
+                  <div>
+                      <h2 style="text-align: center;">Ligas</h2>
+                      <h:form>
+            
+            <h:dataTable value = "#" var="o">
+            <h:column>
+                <label> Nombre de la liga</label>
+              <!-- -->
+               <h:inputText value="#{LigaController.liga.nombre}" />               
+              
+            </h:column>
+            <h:column>
+               <label>Directiva</label>
+               <h:selectOneListbox value = "#{LigaController.liga.idDirectiva}">
+                   <f:selectItem itemValue = "1" itemLabel = "Item 1" /> 
+               </h:selectOneListbox>
+             </h:column>    
+                <h:column>
+               <label>Guardar</label>
+                <h:commandButton value="Crear" actionListener="#{LigaController.Crear()}"/> 
+               </h:column>
+            </h:dataTable>
+           
+        </h:form>
+    </div>
+    <div>
+        
+         <h:form prependId="false" id="form">
+
+            <p:growl id="messages" showDetail="true" />
+            <p:messages />
+
+            <p:dataTable 
+                id="personas" 
+                var="persona" 
+                value="#{LigaController.ligas}" 
+                editable="true" 
+                rowKey="#{liga.idPersona}"
+                selection="#{LigaController.liga}" 
+                selectionMode="single">
+
+                <f:facet name="header">  
+                    Lista de ligas
+                </f:facet>
+
+                <p:column headerText="Nombre">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{liga.nombre}" />
+                        </f:facet>
+                      =
+                    </p:cellEditor>
+                </p:column>
+                  <p:column headerText="Directiva">
+                    <p:cellEditor>
+                       
+                        <f:facet name="input">
+                            <p:inputText value="Directiva- #{liga.idDirectiva.idPersona.primerNom}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+               
+                <f:facet name="footer">
+                   
+                    
+                </f:facet>
+
+            
+            </p:dataTable>
+
+
+
+           
+        </h:form>
+    </div>
+                
+          
+            </ui:define>
+      
+            </ui:composition>
+    </h:body>
+</html>
