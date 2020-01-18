@@ -1,0 +1,29 @@
+/* AUTOMATICALLY GENERATED ON Fri Dec 13 12:53:11 COT 2019*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.EJBMethodPermission "PersonaServiceImpl", "eliminarPersona,Remote,mx.com.gm.sga.domain.Persona";
+  permission javax.security.jacc.EJBMethodPermission "PersonaServiceImpl", "registrarPersona,Local,mx.com.gm.sga.domain.Persona";
+  permission javax.security.jacc.EJBMethodPermission "PersonaDaoImpl", "findAllPersonas,Local,";
+  permission javax.security.jacc.EJBMethodPermission "PersonaServiceImpl", "encontrarPersonaPorId,Local,mx.com.gm.sga.domain.Persona";
+  permission javax.security.jacc.EJBMethodPermission "PersonaDaoImpl", "updatePersona,Local,mx.com.gm.sga.domain.Persona";
+  permission javax.security.jacc.EJBMethodPermission "PersonaServiceImpl", "modificarPersona,Remote,mx.com.gm.sga.domain.Persona";
+  permission javax.security.jacc.EJBMethodPermission "PersonaServiceImpl", "modificarPersona,Local,mx.com.gm.sga.domain.Persona";
+  permission javax.security.jacc.EJBMethodPermission "PersonaDaoImpl", "insertPersona,Local,mx.com.gm.sga.domain.Persona";
+  permission javax.security.jacc.EJBMethodPermission "PersonaDaoImpl", "findPersonaById,Local,mx.com.gm.sga.domain.Persona";
+  permission javax.security.jacc.EJBMethodPermission "PersonaDaoImpl", "findPersonaByEmail,Local,mx.com.gm.sga.domain.Persona";
+  permission javax.security.jacc.EJBMethodPermission "PersonaServiceImpl", "eliminarPersona,Local,mx.com.gm.sga.domain.Persona";
+  permission javax.security.jacc.EJBMethodPermission "PersonaServiceImpl", "encontrarPersonaPorEmail,Remote,mx.com.gm.sga.domain.Persona";
+  permission javax.security.jacc.EJBMethodPermission "PersonaServiceImpl", "encontrarPersonaPorEmail,Local,mx.com.gm.sga.domain.Persona";
+  permission javax.security.jacc.EJBMethodPermission "PersonaServiceImpl", "encontrarPersonaPorId,Remote,mx.com.gm.sga.domain.Persona";
+  permission javax.security.jacc.EJBMethodPermission "PersonaServiceImpl", "listarPersonas,Remote,";
+  permission javax.security.jacc.EJBMethodPermission "PersonaServiceImpl", "registrarPersona,Remote,mx.com.gm.sga.domain.Persona";
+  permission javax.security.jacc.EJBMethodPermission "PersonaServiceImpl", "listarPersonas,Local,";
+  permission javax.security.jacc.EJBMethodPermission "PersonaDaoImpl", "deletePersona,Local,mx.com.gm.sga.domain.Persona";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.EJBRoleRefPermission "PersonaDaoImpl", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "PersonaServiceImpl", "**";
+};
+
