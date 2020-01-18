@@ -21,6 +21,7 @@ C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\serv
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\modelo\Carnet.java
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\servicio\ClubFacadeLocal.java
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\servicio\FechaPartidoFacade.java
+C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\controller\LigaController.java
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\servicio\PersonaFacade.java
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\servicio\SancionesFacade.java
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\servicio\ClubDisciplinaFacadeLocal.java
@@ -33,7 +34,6 @@ C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\mode
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\servicio\PosicionFacade.java
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\modelo\TipoJugador.java
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\servicio\JugadorPartidfoFacade.java
-C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\controlador\CanchaController.java
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\servicio\CampeonatoFacade.java
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\servicio\ArbitroFacade.java
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\servicio\CarnetFacadeLocal.java
@@ -67,7 +67,6 @@ C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\mode
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\servicio\GeneroFacade.java
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\servicio\ClubDisciplinaFacade.java
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\servicio\PartidosFacadeLocal.java
-C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\controlador\LigaController.java
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\servicio\FechaPartidoFacadeLocal.java
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\modelo\Cancha.java
 C:\Users\LENOVO\Documents\GitHub\GUAMBRAGOL\src\main\java\ec\com\guambragol\modelo\GolesPartido.java

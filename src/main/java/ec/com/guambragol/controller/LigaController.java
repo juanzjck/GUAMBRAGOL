@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.com.guambragol.controlador;
+package ec.com.guambragol.controller;
 
 import ec.com.guambragol.modelo.Liga;
 import ec.com.guambragol.servicio.LigaFacadeLocal;
 import java.io.Serializable;
-import java.util.List;
 import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -19,10 +18,7 @@ import org.graalvm.compiler.lir.CompositeValue.Component;
 
 /**
  *
- * Date 1/17/202 
- * Name Daniel Díaz, Edwin Sanabria, Juan Pablo Salazar
- * Description
- * Group
+ * @author LENOVO
  */
 //@Named
 @Named("LigaController")
@@ -32,13 +28,15 @@ public class LigaController implements Serializable {
   @EJB
   private LigaFacadeLocal  LigaEJB;
   private Liga liga;
-  private List<Liga> ligas;
+  private Liga ligas;
   
-    public List getLigas() {
+    public Liga getLigas() {
         return ligas;
     }
 
-  
+    public void setLigas(Liga ligas) {
+        this.ligas = ligas;
+    }
 
     public Liga getLiga() {
         return liga;
