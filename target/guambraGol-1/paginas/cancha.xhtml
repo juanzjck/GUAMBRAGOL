@@ -20,6 +20,30 @@ and open the template in the editor.
             
             <ui:composition template="/plantillas/plantillaAdmin.xhtml">
                  <ui:define name="content">
+                     
+                        <div>
+                      <h2 style="text-align: center;">Agregar una cancha nueva</h2>
+                      <h:form>
+            
+            <h:dataTable value = "#{CanchaController.cancha}" var="o">
+            <h:column>
+                <label> Nombre de la liga</label>
+              <!-- -->
+               <h:inputText value="#{o.nombre}" />               
+              
+            </h:column>
+            <h:column>
+               <label>Direccion</label>
+              <h:inputText value="#{o.direccion}" />               
+             </h:column>    
+                <h:column>
+               <label>Guardar</label>
+                <h:commandButton value="Crear" actionListener="#{CanchaController.Crear()}"/> 
+               </h:column>
+            </h:dataTable>
+           
+        </h:form>
+    </div>
                     <h2 style="text-align: center;">Canchas</h2>
                     <h:dataTable value = "#{CanchaController.canchas}" var = "cancha" styleClass="cancha-table"
     			headerClass="cancha-table-header"

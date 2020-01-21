@@ -69,9 +69,7 @@ public CanchaController(){
             /*
                 el metodo no retorna lo que esta en la base de datos, retorna una Lista pero vacia
             */
-        canchas= canchaEJB.findAll();
-      
-        
+        canchas= canchaEJB.findAll();    
         }catch(Exception e){
             
         }
@@ -79,15 +77,20 @@ public CanchaController(){
         /*
         Se agrego datos quemados para realizar una prueba, funciona
         */
-     canchan= new Cancha();
-     canchan.setIdCancha(1);
-     String nombre="a";
-     canchan.setNombre(nombre);
-     String Dirrecion="snablas";
-     canchan.setDireccion(Dirrecion);
-     canchas.add(canchan);
+   
     }
-    
+    public String Crear(){
+          try{
+              
+             canchaEJB.create(cancha);
+             this.init();
+          }catch(Exception e){
+            
+        }
+        
+         
+          return "";
+    }
     
     
 }
