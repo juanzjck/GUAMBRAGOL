@@ -17,6 +17,7 @@ import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.primefaces.event.RowEditEvent;
 
 /**
  *
@@ -30,7 +31,15 @@ public class CanchaController implements Serializable{
     private CanchaFacadeLocal canchaEJB;
      Cancha canchan;
     private Cancha cancha;
-  
+    boolean editable =false; 
+    public boolean isEditable() {
+        return editable;
+    }
+
+    public void setEditable(boolean editable) {
+        this.editable = editable;
+    }
+ 
       List<Cancha> canchas;
     
     private  Cancha canchaSelecionada;
@@ -63,7 +72,7 @@ public CanchaController(){
     @PostConstruct
     public void init(){
        
-   
+     editable =false; 
         cancha= new Cancha();
         try{
             /*
@@ -79,6 +88,10 @@ public CanchaController(){
         */
    
     }
+    
+    public void edit(){
+    this.editable =true; 
+    }
     public String Crear(){
           try{
               
@@ -92,5 +105,20 @@ public CanchaController(){
           return "";
     }
     
+    /*Guardo los valores editados de una cancha*/
+    
+     public void editListener() {
+         this.editable =false; 
+        canchaEJB.edit(cancha);
+    }
+     
+      public void cancel() {
+         this.editable =false; 
+    }
+      public void eliminiar(){
+       
+       canchaEJB.remove(cancha);
+      init();
+      }
     
 }

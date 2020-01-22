@@ -44,23 +44,58 @@ and open the template in the editor.
            
         </h:form>
     </div>
+                      <h:form>
                     <h2 style="text-align: center;">Canchas</h2>
                     <h:dataTable value = "#{CanchaController.canchas}" var = "cancha" styleClass="cancha-table"
     			headerClass="cancha-table-header"
     			rowClasses="cancha-table-odd-row,cancha-table-even-row"> 
 
-                        <h:column>    				
-                           <f:facet name = "header">Name</f:facet>    				
-                           #{cancha.nombre}
-                        </h:column>
+                        <h:column>
+                            
+                             <f:facet name = "header">Nombre</f:facet>    				
+                           
+                       <p:inputText value="#{cancha.nombre}"  rendered="#{CanchaController.editable}"/>
+		       <h:outputText value="#{cancha.nombre}" rendered="#{!CanchaController.editable}"/>
+                                
+                                
+                                                   </h:column>	
+                     
+                            
+                     
+                        
 
                         <h:column>
                            <f:facet name = "header">Direccion</f:facet>
-                           #{cancha.direccion}
+                              <p:inputText value="#{cancha.direccion}"  rendered="#{CanchaController.editable}"/>
+		       <h:outputText value="#{cancha.direccion}" rendered="#{!CanchaController.editable}"/>
+                                
+                                
                         </h:column>
+                        
+                        
+                        <h:column>
+                           <f:facet name="header">Edit</f:facet>
+                           <h:commandButton value="Edit" 
+                              action="#{CanchaController.edit()}" 
+                              rendered="#{!CanchaController.editable}">        
+                              <f:setPropertyActionListener 
+                                  target="#{CanchaController.cancha}" 
+                                 value="#{cancha}" />
+                           </h:commandButton>
+                         
+                            <h:commandButton value="Save" action="#{CanchaController.editListener()}" rendered="#{CanchaController.editable}" />
+                            <h:commandButton value="Cancel" action="#{CanchaController.cancel()}" rendered="#{CanchaController.editable}" />
+                          <h:commandButton value="Eliminar" action="#{CanchaController.eliminiar()}" rendered="#{CanchaController.editable}" />
+                           
+                        </h:column>
+		
+		
 
+
+     
 
                      </h:dataTable>
+  </h:form>                  
 
                  </ui:define>  
             </ui:composition>
