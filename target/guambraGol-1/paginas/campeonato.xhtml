@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <head>
+            <title>Campionato</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        </head>
+
+        <body>
+           
+            <div>
+
+                <ui:composition template="/plantillas/plantillaAdmin.xhtml">
+                    <ui:define name="content">
+  <div>
+                      <h2 style="text-align: center;">Agregar un nuevo campeonato</h2>
+                      <h:form>
+            
+            <h:dataTable value = "#{CampeonatoController.campeonato}" var="o">
+            <h:column>
+                <label> Nombre de la liga</label>
+              <!-- -->
+               <h:inputText value="#{o.nombre}" />               
+              
+            </h:column>
+                <h:column>
+                <label> Fecha de inicio</label>
+              <!-- -->
+                <p:calendar value="#{o.fechaInicio}" />           
+              
+            </h:column>
+                    <h:column>
+                <label> Fecha de final</label>
+              <!-- -->
+                 <p:calendar value="#{o.fechaFin}" />
+            </h:column>
+                   <h:column>
+            <h:selectOneMenu value="#{CampeonatoController.iDliga}" >
+                                        <f:selectItems value="#{CampeonatoController.ligas}" var="c" itemValue="#{c.idLiga}" itemLabel="#{c.nombre} " />
+                                </h:selectOneMenu>
+                   </h:column>
+                <h:column>
+               <label>Guardar</label>
+                <h:commandButton value="Crear" actionListener="#{CampeonatoController.crear()}"/> 
+               </h:column>
+            </h:dataTable>
+           
+        </h:form>
+    </div>
+                        <h:form>
+                            <h2 style="text-align: center;">Campionatos</h2>
+                            <h:dataTable value="#{CampeonatoController.campeonatos}" var="campeonato" styleClass="campeonato-table" headerClass="campeonato-table-header" rowClasses="campeonato-table-odd-row,campeonato-table-even-row">
+
+                                <h:column>
+
+                                    <f:facet name="header">Nombre</f:facet>
+
+                                    <p:inputText value="#{campeonato.nombre}" rendered="#{CampeonatoController.editable}" />
+                                    
+                                    <h:outputText value="#{campeonato.nombre}" rendered="#{!CampeonatoController.editable}" />
+                                       
+
+                                </h:column>
+
+                    
+                                <h:column>
+
+                                    <f:facet name="header">Fecha de inicio</f:facet>
+
+                                    <p:calendar value="#{campeonato.fechaInicio}" rendered="#{CampeonatoController.editable}"/>
+                                    <h:outputText value="#{campeonato.fechaInicio}" rendered="#{!CampeonatoController.editable}"/>
+                                    
+                                </h:column>
+                                <h:column>
+
+                                    <f:facet name="header">Fecha de finalización</f:facet>
+
+                                   
+                                    <h:outputText value="#{campeonato.fechaFin}"  rendered="#{!CampeonatoController.editable}"/>
+                                     <p:calendar value="#{campeonato.fechaFin}" rendered="#{CampeonatoController.editable}"/>
+                                        
+                                </h:column>
+                                <h:column>
+
+                                    <f:facet name="header">Liga</f:facet>
+
+                                    
+                                   
+                               
+                                    <h:selectOneMenu value="#{CampeonatoController.iDliga}" rendered="#{CampeonatoController.editable}">
+                                        <f:selectItems value="#{CampeonatoController.ligas}" var="o" itemValue="#{o.idLiga}" itemLabel="#{o.nombre} " />
+                                </h:selectOneMenu>
+                                <h:outputText value="#{campeonato.idLiga.nombre}" rendered="#{!CampeonatoController.editable}" />
+
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Edit</f:facet>
+                                    <h:outputText value="#{CampeonatoController.editable}"  />
+
+                                    <h:commandButton value="Edit" action="#{CampeonatoController.editable()}" rendered="#{!CampeonatoController.editable}">
+                                        <f:setPropertyActionListener target="#{CampeonatoController.campeonato}" value="#{campeonato}" />
+                                    </h:commandButton>
+
+                                    <h:commandButton value="Save" action="#{CampeonatoController.edit()}" rendered="#{CampeonatoController.editable}" />
+                                    <h:commandButton value="Cancel" action="#{CampeonatoController.cancel()}" rendered="#{CampeonatoController.editable}" />
+                                    <h:commandButton value="Eliminar" action="#{CampeonatoController.eliminar()}" rendered="#{CampeonatoController.editable}" />
+
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
+
+                    </ui:define>
+                </ui:composition>
+
+            </div>
+        </body>
+    </body>
+
+    </html>

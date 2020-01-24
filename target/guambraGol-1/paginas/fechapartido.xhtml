@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <head>
+            <title>Partidos</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        </head>
+
+        <body>
+           
+            <div>
+
+                <ui:composition template="/plantillas/plantillaAdmin.xhtml">
+                    <ui:define name="content">
+  <div>
+                      <h2 style="text-align: center;">Agregar una nuevo fecha partido</h2>
+                      <h:form>
+            
+            <h:dataTable value = "#{FechaPartidoController.fechapartido}" var="o">
+            <h:column>
+                <label> Fecha de inicio</label>
+              <!-- -->
+               <p:calendar value="#{o.fechaInicio}" />           
+                          
+              
+            </h:column>
+             <h:column>
+                <label> Fecha de fin</label>
+              <!-- -->
+                <p:calendar value="#{o.fechaFin}" />           
+              
+            </h:column>
+            
+                <h:column>
+               <label>Guardar</label>
+                <h:commandButton value="Crear" actionListener="#{FechaPartidoController.crear()}"/> 
+               </h:column>
+            </h:dataTable>
+           
+        </h:form>
+    </div>
+                        <h:form>
+                            <h2 style="text-align: center;">Fechas partidos</h2>
+                            <h:dataTable value="#{FechaPartidoController.fechas}" var="partido" styleClass="partido-table" headerClass="partido-table-header" rowClasses="partido-table-odd-row,partido-table-even-row">
+
+                               
+                    
+                                <h:column>
+
+                                    <f:facet name="header">Fecha de inicio</f:facet>
+
+                                    <p:calendar value="#{partido.fechaInicio}" rendered="#{FechaPartidoController.editable}"/>
+                                    <h:outputText value="#{partido.fechaInicio}" rendered="#{!FechaPartidoController.editable}"/>
+                                    
+                                </h:column>
+                                <h:column>
+
+                                    <f:facet name="header">Fecha de finalización</f:facet>
+
+                                   
+                                    <h:outputText value="#{partido.fechaFin}"  rendered="#{!FechaPartidoController.editable}"/>
+                                     <p:calendar value="#{partido.fechaFin}" rendered="#{FechaPartidoController.editable}"/>
+                                        
+                                </h:column>
+                           
+                                <h:column>
+                                    <f:facet name="header">Edit</f:facet>
+                                    
+
+                                    <h:commandButton value="Edit" action="#{FechaPartidoController.editable()}" rendered="#{!FechaPartidoController.editable}">
+                                        <f:setPropertyActionListener target="#{FechaPartidoController.fechapartido}" value="#{fechapartido}" />
+                                    </h:commandButton>
+
+                                    <h:commandButton value="Save" action="#{fechaPartidoController.edit()}" rendered="#{fechaPartidoController.editable}" />
+                                    <h:commandButton value="Cancel" action="#{fechaPartidoController.cancel()}" rendered="#{fechaPartidoController.editable}" />
+                                    <h:commandButton value="Eliminar" action="#{fechaPartidoController.eliminar()}" rendered="#{fechaPartidoController.editable}" />
+
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
+
+                    </ui:define>
+                </ui:composition>
+
+            </div>
+        </body>
+    </body>
+
+    </html>

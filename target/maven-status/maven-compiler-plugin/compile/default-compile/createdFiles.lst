@@ -1,3 +1,4 @@
+ec\com\guambragol\controlador\FechaPartidoController.class
 ec\com\guambragol\modelo\Persona_.class
 ec\com\guambragol\controlador\LigaController.class
 ec\com\guambragol\servicio\AbstractFacade.class
@@ -32,6 +33,7 @@ ec\com\guambragol\servicio\DetalleFechaCampeonaoFacadeLocal.class
 ec\com\guambragol\modelo\Cargo_.class
 ec\com\guambragol\modelo\Directiva.class
 ec\com\guambragol\servicio\ArbitroFacadeLocal.class
+ec\com\guambragol\convertor\LigaConvertor.class
 ec\com\guambragol\modelo\JugadorPartidfo_.class
 ec\com\guambragol\servicio\JugadorPartidfoFacadeLocal.class
 ec\com\guambragol\servicio\TablaPosicionesFacade.class
@@ -57,6 +59,7 @@ ec\com\guambragol\modelo\SancionesPartidos.class
 ec\com\guambragol\servicio\TipoJugadorFacadeLocal.class
 ec\com\guambragol\servicio\CambiosFacadeLocal.class
 ec\com\guambragol\servicio\FechaPartidoFacade.class
+ec\com\guambragol\controlador\PartidosController.class
 ec\com\guambragol\servicio\DetalleFechaCampeonaoFacade.class
 ec\com\guambragol\modelo\FechaPartido_.class
 ec\com\guambragol\servicio\PosicionFacade.class
@@ -89,6 +92,7 @@ ec\com\guambragol\servicio\SancionesPartidosFacade.class
 ec\com\guambragol\modelo\Posicion_.class
 ec\com\guambragol\modelo\Carnet_.class
 ec\com\guambragol\servicio\JugadorFacade.class
+ec\com\guambragol\controlador\CampeonatoController.class
 ec\com\guambragol\modelo\SancionesPartidos_.class
 ec\com\guambragol\controlador\CanchaController.class
 ec\com\guambragol\servicio\CarnetFacade.class

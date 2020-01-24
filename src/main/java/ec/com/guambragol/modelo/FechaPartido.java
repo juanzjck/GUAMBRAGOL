@@ -37,7 +37,6 @@ public class FechaPartido implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
     @Column(name = "idFechaPartido")
     private Integer idFechaPartido;
     @Basic(optional = false)
