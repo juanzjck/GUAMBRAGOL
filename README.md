@@ -5,7 +5,7 @@ Requirements
 
 JAVA JDK 13.1 </br>
 Netbeans 11.2 </br>
-Mysql 8.0 </br>
+Mysql 5.7 </br>
 Glassfish 5 </br>
 
 
