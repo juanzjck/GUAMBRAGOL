@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `guambragoldb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `guambragoldb`;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
 -- Host: localhost    Database: guambragoldb
@@ -16,18 +18,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tipojugador`
+-- Table structure for table `cancha`
 --
 
-DROP TABLE IF EXISTS `tipojugador`;
+DROP TABLE IF EXISTS `cancha`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tipojugador` (
-  `idTipoJugador` int(11) NOT NULL AUTO_INCREMENT,
-  `tipo` varchar(45) NOT NULL,
-  PRIMARY KEY (`idTipoJugador`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `cancha` (
+  `idCancha` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  `direccion` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idCancha`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cancha`
+--
+
+LOCK TABLES `cancha` WRITE;
+/*!40000 ALTER TABLE `cancha` DISABLE KEYS */;
+INSERT INTO `cancha` VALUES (9,'PRUEBA','prueba'),(10,'PRUEBA','prueba'),(11,'PRUEBA','prueba'),(12,'PRUEBA','prueba'),(13,'PRUEBA','prueba'),(15,'PRUEBA','prueba'),(34,'cancha 123','san blas');
+/*!40000 ALTER TABLE `cancha` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -38,4 +51,4 @@ CREATE TABLE `tipojugador` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-31 17:30:50
+-- Dump completed on 2020-01-31 17:33:39

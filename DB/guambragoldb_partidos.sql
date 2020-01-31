@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `guambragoldb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `guambragoldb`;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
 -- Host: localhost    Database: guambragoldb
@@ -47,6 +49,16 @@ CREATE TABLE `partidos` (
   CONSTRAINT `idfkvisitante` FOREIGN KEY (`idClubVisitante`) REFERENCES `club` (`idClub`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `partidos`
+--
+
+LOCK TABLES `partidos` WRITE;
+/*!40000 ALTER TABLE `partidos` DISABLE KEYS */;
+INSERT INTO `partidos` VALUES (1,1,'2020-01-10',23,9,1,1,'h',0,0,1);
+/*!40000 ALTER TABLE `partidos` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -57,4 +69,4 @@ CREATE TABLE `partidos` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-31 17:30:51
+-- Dump completed on 2020-01-31 17:33:39

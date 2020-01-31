@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `guambragoldb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `guambragoldb`;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
 -- Host: localhost    Database: guambragoldb
@@ -16,31 +18,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `jugador`
+-- Table structure for table `genero`
 --
 
-DROP TABLE IF EXISTS `jugador`;
+DROP TABLE IF EXISTS `genero`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `jugador` (
-  `idJugador` int(11) NOT NULL AUTO_INCREMENT,
-  `idTipoJugador` int(11) NOT NULL,
-  `idPosicion` int(11) NOT NULL,
-  `dorsal` int(11) NOT NULL,
-  `idPersona` int(11) NOT NULL,
-  `idClub` int(11) NOT NULL,
-  PRIMARY KEY (`idJugador`),
-  KEY `fkidclub_idx` (`idClub`),
-  KEY `idfkclub_idx` (`idClub`),
-  KEY `idfkpersonaJ_idx` (`idPersona`),
-  KEY `fkidposicion_idx` (`idPosicion`),
-  KEY `idfktipoJugador_idx` (`idTipoJugador`),
-  CONSTRAINT `fkidposicion` FOREIGN KEY (`idPosicion`) REFERENCES `posicion` (`idPosicion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `idfkclub` FOREIGN KEY (`idClub`) REFERENCES `club` (`idClub`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `idfkpersonaJ` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `idfktipoJugador` FOREIGN KEY (`idTipoJugador`) REFERENCES `tipojugador` (`idTipoJugador`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `genero` (
+  `idGenero` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  PRIMARY KEY (`idGenero`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `genero`
+--
+
+LOCK TABLES `genero` WRITE;
+/*!40000 ALTER TABLE `genero` DISABLE KEYS */;
+INSERT INTO `genero` VALUES (5,'asdf');
+/*!40000 ALTER TABLE `genero` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -51,4 +50,4 @@ CREATE TABLE `jugador` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-31 17:30:52
+-- Dump completed on 2020-01-31 17:33:38

@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `guambragoldb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `guambragoldb`;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
 -- Host: localhost    Database: guambragoldb
@@ -16,21 +18,37 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `liga`
+-- Table structure for table `sancionespartidos`
 --
 
-DROP TABLE IF EXISTS `liga`;
+DROP TABLE IF EXISTS `sancionespartidos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `liga` (
-  `idLiga` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  `idDirectiva` int(11) NOT NULL,
-  PRIMARY KEY (`idLiga`),
-  KEY `idfkdirectiva_idx` (`idDirectiva`),
-  CONSTRAINT `idfkdirectiva` FOREIGN KEY (`idDirectiva`) REFERENCES `directiva` (`idDirectiva`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+CREATE TABLE `sancionespartidos` (
+  `idSancionesPartidos` int(11) NOT NULL,
+  `idPartido` int(11) NOT NULL,
+  `idJugador` int(11) NOT NULL,
+  `idSanciones` int(11) NOT NULL,
+  PRIMARY KEY (`idSancionesPartidos`),
+  KEY `IDFKJugador_idx` (`idJugador`),
+  KEY `fkJugador_idx` (`idJugador`),
+  KEY `idfkpartido_idx` (`idPartido`),
+  KEY `fkpartido_idx` (`idPartido`),
+  KEY `idfksansion_idx` (`idSanciones`),
+  CONSTRAINT `fkpartido` FOREIGN KEY (`idPartido`) REFERENCES `partidos` (`idPartidos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `idfkjugador` FOREIGN KEY (`idJugador`) REFERENCES `jugador` (`idJugador`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `idfksansion` FOREIGN KEY (`idSanciones`) REFERENCES `sanciones` (`idSanciones`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sancionespartidos`
+--
+
+LOCK TABLES `sancionespartidos` WRITE;
+/*!40000 ALTER TABLE `sancionespartidos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sancionespartidos` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -41,4 +59,4 @@ CREATE TABLE `liga` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-31 17:30:49
+-- Dump completed on 2020-01-31 17:33:38

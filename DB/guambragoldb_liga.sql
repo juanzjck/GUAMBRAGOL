@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `guambragoldb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `guambragoldb`;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
 -- Host: localhost    Database: guambragoldb
@@ -16,22 +18,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `informeequipo`
+-- Table structure for table `liga`
 --
 
-DROP TABLE IF EXISTS `informeequipo`;
+DROP TABLE IF EXISTS `liga`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `informeequipo` (
-  `idinformeEquipo` int(11) NOT NULL AUTO_INCREMENT,
-  `Balon` tinyint(4) NOT NULL,
-  `Cinta` tinyint(4) NOT NULL,
-  `idInformeVocal` int(11) NOT NULL,
-  PRIMARY KEY (`idinformeEquipo`),
-  KEY `idInformeVocal_idx` (`idInformeVocal`),
-  CONSTRAINT `idInformeVocalforeign` FOREIGN KEY (`idInformeVocal`) REFERENCES `informevocal` (`idInformeVocal`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+CREATE TABLE `liga` (
+  `idLiga` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `idDirectiva` int(11) NOT NULL,
+  PRIMARY KEY (`idLiga`),
+  KEY `idfkdirectiva_idx` (`idDirectiva`),
+  CONSTRAINT `idfkdirectiva` FOREIGN KEY (`idDirectiva`) REFERENCES `directiva` (`idDirectiva`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `liga`
+--
+
+LOCK TABLES `liga` WRITE;
+/*!40000 ALTER TABLE `liga` DISABLE KEYS */;
+INSERT INTO `liga` VALUES (1,'Liga A',1);
+/*!40000 ALTER TABLE `liga` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -42,4 +53,4 @@ CREATE TABLE `informeequipo` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-31 17:30:51
+-- Dump completed on 2020-01-31 17:33:38

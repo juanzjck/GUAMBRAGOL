@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `guambragoldb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `guambragoldb`;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
 -- Host: localhost    Database: guambragoldb
@@ -16,18 +18,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `sanciones`
+-- Table structure for table `fechapartido`
 --
 
-DROP TABLE IF EXISTS `sanciones`;
+DROP TABLE IF EXISTS `fechapartido`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sanciones` (
-  `idSanciones` int(11) NOT NULL AUTO_INCREMENT,
-  `NombreSancion` varchar(45) NOT NULL,
-  PRIMARY KEY (`idSanciones`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+CREATE TABLE `fechapartido` (
+  `idFechaPartido` int(11) NOT NULL AUTO_INCREMENT,
+  `fechaInicio` date NOT NULL,
+  `fechaFin` date NOT NULL,
+  PRIMARY KEY (`idFechaPartido`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fechapartido`
+--
+
+LOCK TABLES `fechapartido` WRITE;
+/*!40000 ALTER TABLE `fechapartido` DISABLE KEYS */;
+INSERT INTO `fechapartido` VALUES (1,'2020-01-02','2020-01-16'),(2,'2020-01-16','2020-01-13'),(3,'2020-01-14','2020-01-14'),(4,'2020-01-16','2020-01-20'),(10,'2020-01-09','2020-01-06'),(11,'2020-01-10','2020-01-16'),(12,'2020-01-10','2020-01-15'),(13,'2020-01-03','2020-01-08');
+/*!40000 ALTER TABLE `fechapartido` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -38,4 +51,4 @@ CREATE TABLE `sanciones` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-31 17:30:50
+-- Dump completed on 2020-01-31 17:33:40

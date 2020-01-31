@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `guambragoldb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `guambragoldb`;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
 -- Host: localhost    Database: guambragoldb
@@ -16,18 +18,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cargo`
+-- Table structure for table `detallefechacampeonao`
 --
 
-DROP TABLE IF EXISTS `cargo`;
+DROP TABLE IF EXISTS `detallefechacampeonao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cargo` (
-  `idCargo` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`idCargo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+CREATE TABLE `detallefechacampeonao` (
+  `idDetalleFechaCampeonao` int(11) NOT NULL,
+  `idCampeonato` int(11) DEFAULT NULL,
+  `idFechaPartido` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idDetalleFechaCampeonao`),
+  KEY `FK_DetalleFechaCampeonao_idCampeonato` (`idCampeonato`),
+  KEY `FK_DetalleFechaCampeonao_idFechaPartido` (`idFechaPartido`),
+  CONSTRAINT `FK_DetalleFechaCampeonao_idCampeonato` FOREIGN KEY (`idCampeonato`) REFERENCES `campeonato` (`idCampeonato`),
+  CONSTRAINT `FK_DetalleFechaCampeonao_idFechaPartido` FOREIGN KEY (`idFechaPartido`) REFERENCES `fechapartido` (`idFechaPartido`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `detallefechacampeonao`
+--
+
+LOCK TABLES `detallefechacampeonao` WRITE;
+/*!40000 ALTER TABLE `detallefechacampeonao` DISABLE KEYS */;
+/*!40000 ALTER TABLE `detallefechacampeonao` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -38,4 +54,4 @@ CREATE TABLE `cargo` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-31 17:30:50
+-- Dump completed on 2020-01-31 17:33:38

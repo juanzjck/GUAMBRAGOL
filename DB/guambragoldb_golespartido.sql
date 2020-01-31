@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `guambragoldb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `guambragoldb`;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
 -- Host: localhost    Database: guambragoldb
@@ -16,27 +18,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `carnet`
+-- Table structure for table `golespartido`
 --
 
-DROP TABLE IF EXISTS `carnet`;
+DROP TABLE IF EXISTS `golespartido`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `carnet` (
-  `idCarnet` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `golespartido` (
+  `idGolesPartido` int(11) NOT NULL AUTO_INCREMENT,
+  `idPartido` int(11) NOT NULL,
   `idJugador` int(11) NOT NULL,
-  `fechaExp` date NOT NULL,
-  `fechaCad` date NOT NULL,
-  `foto` varchar(45) NOT NULL,
-  `idDisciplina` int(11) NOT NULL,
-  PRIMARY KEY (`idCarnet`),
-  KEY `fkiddisciplina_idx` (`idDisciplina`),
-  KEY `idfkdisciplina_idx` (`idDisciplina`),
-  KEY `fkidjug_idx` (`idJugador`),
-  CONSTRAINT `fkidjug` FOREIGN KEY (`idJugador`) REFERENCES `jugador` (`idJugador`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `idfkdisciplina` FOREIGN KEY (`idDisciplina`) REFERENCES `disciplina` (`idDisciplina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `cantidadGoles` int(11) NOT NULL,
+  PRIMARY KEY (`idGolesPartido`),
+  KEY `IDfkJugador_idx` (`idJugador`),
+  KEY `idfkpartido_idx` (`idPartido`),
+  CONSTRAINT `fkidjugador` FOREIGN KEY (`idJugador`) REFERENCES `jugador` (`idJugador`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `idfkpartido` FOREIGN KEY (`idPartido`) REFERENCES `golespartido` (`idGolesPartido`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `golespartido`
+--
+
+LOCK TABLES `golespartido` WRITE;
+/*!40000 ALTER TABLE `golespartido` DISABLE KEYS */;
+/*!40000 ALTER TABLE `golespartido` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -47,4 +55,4 @@ CREATE TABLE `carnet` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-31 17:30:49
+-- Dump completed on 2020-01-31 17:33:39

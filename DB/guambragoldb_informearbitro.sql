@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `guambragoldb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `guambragoldb`;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
 -- Host: localhost    Database: guambragoldb
@@ -16,21 +18,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `disciplina`
+-- Table structure for table `informearbitro`
 --
 
-DROP TABLE IF EXISTS `disciplina`;
+DROP TABLE IF EXISTS `informearbitro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `disciplina` (
-  `idDisciplina` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  `idgenero` int(11) NOT NULL,
-  PRIMARY KEY (`idDisciplina`),
-  KEY `idfkgenero_idx` (`idgenero`),
-  CONSTRAINT `idfkgenero` FOREIGN KEY (`idgenero`) REFERENCES `genero` (`idGenero`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `informearbitro` (
+  `idInformeArbitro` int(11) NOT NULL AUTO_INCREMENT,
+  `Descripcion` varchar(200) NOT NULL,
+  `idArbitro` int(11) NOT NULL,
+  `idInformeVocal` int(11) NOT NULL,
+  PRIMARY KEY (`idInformeArbitro`),
+  KEY `idArbitro_idx` (`idArbitro`),
+  KEY `idInformeVocal_idx` (`idInformeVocal`),
+  CONSTRAINT `idArbitro` FOREIGN KEY (`idArbitro`) REFERENCES `arbitro` (`idArbitro`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `idInformeVocal` FOREIGN KEY (`idInformeVocal`) REFERENCES `informevocal` (`idInformeVocal`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `informearbitro`
+--
+
+LOCK TABLES `informearbitro` WRITE;
+/*!40000 ALTER TABLE `informearbitro` DISABLE KEYS */;
+INSERT INTO `informearbitro` VALUES (4,'f',1,17);
+/*!40000 ALTER TABLE `informearbitro` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -41,4 +56,4 @@ CREATE TABLE `disciplina` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-31 17:30:51
+-- Dump completed on 2020-01-31 17:33:40
