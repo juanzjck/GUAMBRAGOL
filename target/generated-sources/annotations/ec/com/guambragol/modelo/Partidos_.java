@@ -13,7 +13,7 @@ import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.7.0.v20170811-rNA", date="2020-01-24T11:27:56")
+@Generated(value="EclipseLink-2.7.0.v20170811-rNA", date="2020-01-31T16:17:39")
 @StaticMetamodel(Partidos.class)
 public class Partidos_ { 
 

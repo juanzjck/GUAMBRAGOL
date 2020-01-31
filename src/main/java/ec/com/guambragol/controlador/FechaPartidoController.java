@@ -5,7 +5,11 @@
  */
 package ec.com.guambragol.controlador;
 
+import ec.com.guambragol.modelo.Campeonato;
+import ec.com.guambragol.modelo.DetalleFechaCampeonao;
 import ec.com.guambragol.modelo.FechaPartido;
+import ec.com.guambragol.servicio.CampeonatoFacadeLocal;
+import ec.com.guambragol.servicio.DetalleFechaCampeonaoFacadeLocal;
 import ec.com.guambragol.servicio.FechaPartidoFacadeLocal;
 
 import java.io.Serializable;
@@ -24,9 +28,31 @@ import javax.inject.Named;
 public class FechaPartidoController implements Serializable {
     @EJB
     private FechaPartidoFacadeLocal fechapartidoEJB;
+     @EJB
+    private CampeonatoFacadeLocal campeonatoEJB;
+    @EJB
+    private DetalleFechaCampeonaoFacadeLocal detalleEJB;
     private FechaPartido fechapartido;
     List<FechaPartido> fechas;
+     List<Campeonato> campeonatos;
     boolean editable=false;
+    int idCampeonato;
+    
+    public List<Campeonato> getCampeonatos() {
+        return campeonatos;
+    }
+
+    public void setCampeonatos(List<Campeonato> campeonatos) {
+        this.campeonatos = campeonatos;
+    }
+
+    public int getIdCampeonato() {
+        return idCampeonato;
+    }
+
+    public void setIdCampeonato(int idCampeonato) {
+        this.idCampeonato = idCampeonato;
+    }
 
     public boolean isEditable() {
         return editable;
@@ -57,27 +83,35 @@ public class FechaPartidoController implements Serializable {
         try{
         fechapartido = new FechaPartido();
         fechas = fechapartidoEJB.findAll();
+        campeonatos=campeonatoEJB.findAll();
         }catch(Exception e){
         }
        
     }
     public void eliminar(){
         fechapartidoEJB.remove(fechapartido);
-        init();
+     cancel();
     }
     public void edit(){
+      
         fechapartidoEJB.edit(fechapartido);
-        init();
+         
+        cancel();
     }
     
     public void crear(){
+      
         this.fechapartidoEJB.create(fechapartido);
-        init();
+       
+        cancel();
     }
      public void editable(){
          this.editable=true;
     }
       public void cancel(){
          this.editable=false;
+         init();
     }
+     
+      
 }

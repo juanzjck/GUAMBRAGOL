@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <head>
+            <title>Partidos</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        </head>
+
+        <body>
+
+            <div>
+
+                <ui:composition template="/plantillas/plantillaAdmin.xhtml">
+                    <ui:define name="content">
+                        <div>
+                            <h2 style="text-align: center;">Agregar un nuevo partido</h2>
+                            <h:form>
+
+                                <h:dataTable value="#{PartidoController.partido}" var="p">
+                                    <h:column>
+                                       <f:facet name="header">Fecha</f:facet>
+                             
+                                         <p:calendar value="#{p.fecha}" />
+
+                                    </h:column>
+                                  
+                                    <h:column>
+                                        <f:facet name="header">Hola</f:facet>
+                                        <!-- -->
+                                         <h:inputText value="#{p.hora}" />
+                                      
+                                    </h:column>
+                                     <h:column>
+                                         <f:facet name="header">Categoría</f:facet>
+                                        <!-- -->
+                                         <h:inputText value="#{p.categoria}" />
+                                      
+                                    </h:column>
+                                      <h:column>
+                                      <f:facet name="header">Goles locales</f:facet>
+                                        <!-- -->
+                                         <h:inputText value="#{p.golesLocal}" />
+                                      
+                                    </h:column>
+                                     <h:column>
+                                         <f:facet name="header">Goles visitantes</f:facet>
+                                        <!-- -->
+                                         <h:inputText value="#{p.golesVisitante}" />
+                                      
+                                    </h:column>
+                                    <h:column>
+                                          <f:facet name="header">cancha</f:facet>
+                                        <h:selectOneMenu value="#{PartidoController.idcancha}">
+                                            <f:selectItems value="#{PartidoController.canchas}" var="c" itemValue="#{c.idCancha}" itemLabel="#{c.nombre} " />
+                                        </h:selectOneMenu>
+                                    </h:column>
+                                      <h:column>
+                                           <f:facet name="header">Arbitro</f:facet>
+                                        <h:selectOneMenu value="#{PartidoController.idarbitro}">
+                                            <f:selectItems value="#{PartidoController.arbitros}" var="a" itemValue="#{a.idArbitro}" itemLabel="#{a.idPersona.primerNom} #{a.idPersona.apellidoPat}  " />
+                                        </h:selectOneMenu>
+                                    </h:column>
+                                        <h:column>
+                                          <f:facet name="header">Club local</f:facet>
+                                        <h:selectOneMenu value="#{PartidoController.idclublocal}">
+                                            <f:selectItems value="#{PartidoController.clubs}" var="c" itemValue="#{c.idClub}" itemLabel="#{c.nombreClub}" />
+                                        </h:selectOneMenu>
+                                    </h:column>
+                                       <h:column>
+                                          <f:facet name="header">Club visitantes</f:facet>
+                                        <h:selectOneMenu value="#{PartidoController.idclubvisitante}">
+                                            <f:selectItems value="#{PartidoController.clubs}" var="c" itemValue="#{c.idClub}" itemLabel="#{c.nombreClub}" />
+                                        </h:selectOneMenu>
+                                    </h:column>
+                                      <h:column>
+                                           <f:facet name="header">Fecha partido</f:facet>
+                                        <h:selectOneMenu value="#{PartidoController.idfecha}">
+                                            <f:selectItems value="#{PartidoController.fechapartidos}" var="f" itemValue="#{f.idFechaPartido}" itemLabel="#{f.fechaInicio.month}/#{f.fechaInicio.day}/#{f.fechaInicio.year} - #{f.fechaFin.month}/#{f.fechaFin.day}/#{f.fechaFin.year} " />
+                                        </h:selectOneMenu>
+                                    </h:column>
+                                    <h:column>
+                                         <f:facet name="header">Guardar</f:facet>
+                                        <h:commandButton value="Crear" actionListener="#{PartidoController.crear()}" />
+                                    </h:column>
+                                </h:dataTable>
+
+                            </h:form>
+                        </div>
+                        <h:form>
+                            <h2 style="text-align: center;">Partidos</h2>
+                            <h:dataTable value="#{PartidoController.partidos}" var="p">
+
+                                  <h:column>
+                                       <f:facet name="header">Fecha</f:facet>
+                             
+                                         <p:calendar value="#{p.fecha}" rendered="#{PartidoController.editable}" />
+                                          <h:outputText value="#{p.fecha}" rendered="#{!PartidoController.editable}" />
+                                    </h:column>
+                                  
+                                    <h:column>
+                                        <f:facet name="header">Hola</f:facet>
+                                        <!-- -->
+                                         <h:inputText value="#{p.hora}" rendered="#{PartidoController.editable}"/>
+                                        <h:outputText value="#{p.hora}" rendered="#{!PartidoController.editable}" />
+                                    </h:column>
+                                     <h:column>
+                                         <f:facet name="header">Categoría</f:facet>
+                                        <!-- -->
+                                         <h:inputText value="#{p.categoria}" rendered="#{PartidoController.editable}" />
+                                      <h:outputText value="#{p.categoria}" rendered="#{!PartidoController.editable}" />
+                                    </h:column>
+                                      <h:column>
+                                      <f:facet name="header">Goles locales</f:facet>
+                                        <!-- -->
+                                         <h:inputText value="#{p.golesLocal}" rendered="#{PartidoController.editable}"  />
+                                        <h:outputText value="#{p.golesLocal}" rendered="#{!PartidoController.editable}" />
+                                    </h:column>
+                                     <h:column>
+                                         <f:facet name="header">Goles visitantes</f:facet>
+                                        <!-- -->
+                                         <h:inputText value="#{p.golesVisitante}" rendered="#{PartidoController.editable}" />
+                                          <h:outputText value="#{p.golesVisitante}" rendered="#{!PartidoController.editable}" />
+                                    </h:column>
+                                    <h:column>
+                                          <f:facet name="header">cancha</f:facet>
+                                        <h:selectOneMenu value="#{PartidoController.idcancha}" rendered="#{PartidoController.editable}">
+                                            <f:selectItems value="#{PartidoController.canchas}" var="ca" itemValue="#{ca.idCancha}" itemLabel="#{ca.nombre} " />
+                                        </h:selectOneMenu>
+                                          <h:outputText value="#{p.idCancha.nombre}" rendered="#{!PartidoController.editable}" />
+                                    </h:column>
+                                      <h:column>
+                                           <f:facet name="header">Arbitro</f:facet>
+                                        <h:selectOneMenu value="#{PartidoController.idarbitro}" rendered="#{PartidoController.editable}">
+                                            <f:selectItems value="#{PartidoController.arbitros}" var="a" itemValue="#{a.idArbitro}" itemLabel="#{a.idPersona.primerNom} #{a.idPersona.apellidoPat}  " />
+                                        </h:selectOneMenu>
+                                           <h:outputText value="#{p.idArbitro.idPersona.primerNom} #{p.idArbitro.idPersona.apellidoPat}" rendered="#{!PartidoController.editable}" />
+                                    </h:column>
+                                        <h:column>
+                                          <f:facet name="header">Club local</f:facet>
+                                        <h:selectOneMenu value="#{PartidoController.idclublocal}"  rendered="#{PartidoController.editable}" >
+                                            <f:selectItems value="#{PartidoController.clubs}" var="c" itemValue="#{c.idClub}" itemLabel="#{c.nombreClub}" />
+                                        </h:selectOneMenu>
+                                          <h:outputText value="#{p.idClubLocal.nombreClub}" rendered="#{!PartidoController.editable}" />
+                                    </h:column>
+                                       <h:column>
+                                          <f:facet name="header">Club visitantes</f:facet>
+                                        <h:selectOneMenu value="#{PartidoController.idclubvisitante}" rendered="#{PartidoController.editable}">
+                                            <f:selectItems value="#{PartidoController.clubs}" var="c" itemValue="#{c.idClub}" itemLabel="#{c.nombreClub}" />
+                                        </h:selectOneMenu>
+                                          <h:outputText value="#{p.idClubVisitante.nombreClub}" rendered="#{!PartidoController.editable}" />
+                                    </h:column>
+                                      <h:column>
+                                           <f:facet name="header">Fecha partido</f:facet>
+                                        <h:selectOneMenu value="#{PartidoController.idfecha}" rendered="#{PartidoController.editable}">
+                                            <f:selectItems value="#{PartidoController.fechapartidos}" var="f" itemValue="#{f.idFechaPartido}" itemLabel="#{f.fechaInicio.month}/#{f.fechaInicio.day}/#{f.fechaInicio.year} - #{f.fechaFin.month}/#{f.fechaFin.day}/#{f.fechaFin.year} " />
+                                        </h:selectOneMenu>
+                                           <h:outputText value="#{p.idFechaPartido.fechaInicio} - #{p.idFechaPartido.fechaFin}" rendered="#{!PartidoController.editable}" />
+                                    </h:column>
+                                <h:column>
+                                    <f:facet name="header">Edit</f:facet>
+                                   
+
+                                    <h:commandButton value="Edit" action="#{PartidoController.editable()}" rendered="#{!PartidoController.editable}">
+                                        <f:setPropertyActionListener target="#{PartidoController.partido}" value="#{p}" />
+                                    </h:commandButton>
+
+                                    <h:commandButton value="Save" action="#{PartidoController.edit()}" rendered="#{PartidoController.editable}" />
+                                    <h:commandButton value="Cancel" action="#{PartidoController.cancel()}" rendered="#{PartidoController.editable}" />
+                                    <h:commandButton value="Eliminar" action="#{PartidoController.eliminiar()}" rendered="#{PartidoController.editable}" />
+
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
+
+                    </ui:define>
+                </ui:composition>
+
+            </div>
+        </body>
+    </body>
+
+    </html>

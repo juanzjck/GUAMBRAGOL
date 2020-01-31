@@ -39,7 +39,7 @@ and open the template in the editor.
                 <p:calendar value="#{o.fechaFin}" />           
               
             </h:column>
-            
+                 
                 <h:column>
                <label>Guardar</label>
                 <h:commandButton value="Crear" actionListener="#{FechaPartidoController.crear()}"/> 
@@ -50,7 +50,7 @@ and open the template in the editor.
     </div>
                         <h:form>
                             <h2 style="text-align: center;">Fechas partidos</h2>
-                            <h:dataTable value="#{FechaPartidoController.fechas}" var="partido" styleClass="partido-table" headerClass="partido-table-header" rowClasses="partido-table-odd-row,partido-table-even-row">
+                            <h:dataTable value="#{FechaPartidoController.fechas}" var="fechapartido">
 
                                
                     
@@ -58,8 +58,8 @@ and open the template in the editor.
 
                                     <f:facet name="header">Fecha de inicio</f:facet>
 
-                                    <p:calendar value="#{partido.fechaInicio}" rendered="#{FechaPartidoController.editable}"/>
-                                    <h:outputText value="#{partido.fechaInicio}" rendered="#{!FechaPartidoController.editable}"/>
+                                    <p:calendar value="#{fechapartido.fechaInicio}" />
+                                    
                                     
                                 </h:column>
                                 <h:column>
@@ -67,22 +67,24 @@ and open the template in the editor.
                                     <f:facet name="header">Fecha de finalización</f:facet>
 
                                    
-                                    <h:outputText value="#{partido.fechaFin}"  rendered="#{!FechaPartidoController.editable}"/>
-                                     <p:calendar value="#{partido.fechaFin}" rendered="#{FechaPartidoController.editable}"/>
+                                 
+                                     <p:calendar value="#{fechapartido.fechaFin}" />
                                         
                                 </h:column>
-                           
+                       
+            
                                 <h:column>
                                     <f:facet name="header">Edit</f:facet>
                                     
 
-                                    <h:commandButton value="Edit" action="#{FechaPartidoController.editable()}" rendered="#{!FechaPartidoController.editable}">
-                                        <f:setPropertyActionListener target="#{FechaPartidoController.fechapartido}" value="#{fechapartido}" />
+                            
+                                    <h:commandButton value="Save" action="#{FechaPartidoController.edit()}"  >
+                                         <f:setPropertyActionListener target="#{FechaPartidoController.fechapartido}" value="#{fechapartido}" />
                                     </h:commandButton>
-
-                                    <h:commandButton value="Save" action="#{fechaPartidoController.edit()}" rendered="#{fechaPartidoController.editable}" />
-                                    <h:commandButton value="Cancel" action="#{fechaPartidoController.cancel()}" rendered="#{fechaPartidoController.editable}" />
-                                    <h:commandButton value="Eliminar" action="#{fechaPartidoController.eliminar()}" rendered="#{fechaPartidoController.editable}" />
+                                   
+                                    <h:commandButton value="Eliminar" action="#{FechaPartidoController.eliminar()}"  >
+                                         <f:setPropertyActionListener target="#{FechaPartidoController.fechapartido}" value="#{fechapartido}" />
+                                    </h:commandButton>
 
                                 </h:column>
                             </h:dataTable>

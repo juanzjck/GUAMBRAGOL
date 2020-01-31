@@ -31,7 +31,7 @@ public class DetalleFechaCampeonao implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
+
     @Column(name = "idDetalleFechaCampeonao")
     private Integer idDetalleFechaCampeonao;
     @JoinColumn(name = "idCampeonato", referencedColumnName = "idCampeonato")
