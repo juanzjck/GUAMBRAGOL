@@ -32,15 +32,6 @@ CREATE TABLE `informeequipo` (
   CONSTRAINT `idInformeVocalforeign` FOREIGN KEY (`idInformeVocal`) REFERENCES `informevocal` (`idInformeVocal`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `informeequipo`
---
-
-LOCK TABLES `informeequipo` WRITE;
-/*!40000 ALTER TABLE `informeequipo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `informeequipo` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -51,4 +42,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-31 17:24:22
+-- Dump completed on 2020-01-31 17:30:51
